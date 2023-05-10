@@ -1,0 +1,11 @@
+{% block title %}<title>Подробно о пациенте</title>{% endblock %}
+{% block content %}
+  <h1>Пациент\ка: {{ patient.first_name }} {{ patient.last_name }} </h1>
+  <p><strong>ID:</strong> {{patient.pk}} </p>
+  <p><strong>Возраст:</strong> {{patient.age}} </p> <!-- author detail link not yet defined -->
+  <p><strong>Диагноз:</strong> {{patient.diagnosis}}</p>
+  <p><strong>Лечащий Врач:</strong> {{patient.doctor}}</p>
+  <p><strong>Палата:</strong> {{patient.room}}</p>
+
+
+{% endblock %}
