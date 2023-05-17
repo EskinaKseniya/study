@@ -1,18 +1,10 @@
 import sqlite3 as sq
 with sq.connect("medicine.db") as db :
     cursor = db.cursor()
+    cursor.execute('SELECT id_patient, diagnosis FROM medical_history WHERE id_regularDoctor = 3')
+    alldata = cursor.fetchall()
+    print(alldata)
 
-    insert_mh = [
-        (1, 1, 6, "Ковид", 6),
-        (2, 2, 3, "Перелом ноги", 4),
-        (3, 3, 3, "Вывих руки", 5),
-        (4, 6, 4, "Острый тонзиллит", 7),
-        (5, 4, 1, "Острый Аппендицит", 1),
-        (6, 5, 2, "Острый Аппендицит", 2)
-    ]
-    dep = """INSERT INTO medical_history (id, id_patient, id_regularDoctor, diagnosis, id_room) VALUES(?,?,?,?,?);"""
-    cursor.executemany(dep, insert_mh)
-    db.commit()
     '''
        cursor.execute("""CREATE TABLE patients (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -103,7 +95,8 @@ with sq.connect("medicine.db") as db :
     cursor.executemany(dep, insert_mh)
     db.commit()
     
-    
+    cursor.execute('SELECT *FROM medical_history')
+
     
   cursor.execute("DROP TABLE medical_history")
     cursor.execute("DROP TABLE patients")

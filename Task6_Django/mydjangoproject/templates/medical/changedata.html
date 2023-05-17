@@ -1,6 +1,6 @@
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
-{% block title %}<title>Главная страница</title>{% endblock %}
+{% block title %}<title>Изменяем данные</title>{% endblock %}
       <div class="col-sm-10 ">
       {% block content %}
            <h1>Список Пациентов</h1>
@@ -8,7 +8,7 @@
       <ul>
       {% for patient in patient_list %}
       <li>
-        <a href="{{patient.get_absolute_url}}">{{ patient.last_name }} {{patient.first_name}}</a> ({{patient.diagnosis}})
+        <a href="form{{patient.get_absolute_url}}">{{ patient.last_name }} {{patient.first_name}}</a> ({{patient.diagnosis}})
       </li>
       {% endfor %}
 
@@ -16,7 +16,5 @@
     {% else %}
       <p>There are no patients in the library.</p>
     {% endif %}
-    <a href="{%url 'form' %}">Добавить пациента</a></li>
-          <a href="{%url 'changedata'%}" > Изменить данные </a>
     {% endblock %}
-      </div>
+     </div>

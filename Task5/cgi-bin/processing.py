@@ -26,6 +26,23 @@ if (n_d and sp ):
                         </body>
                         </html>
                 """)
+        cursor.execute('SELECT *FROM doctors')
+        alldata = cursor.fetchall()
+        print(f"""<table>
+                   <tr>
+                   <td>id</td>
+                   <td>Фио</td>
+                   <td>Специализация</td>
+                   </tr>""")
+        for cur in alldata:
+            print(f"""
+                     <tr>
+                       <td>{cur[0]}</td>
+                       <td>{cur[1]}</td>
+                       <td>{cur[2]}</td>
+                     </tr>""")
+        print("""</table>""")
+
 else:
     if (n_p and old ) :
         print(f"{n_p} -> {old}")
@@ -46,7 +63,21 @@ else:
                             </html>
             """)
             cursor.execute('SELECT *FROM patients')
-            print(cursor.fetchall())
+            alldata = cursor.fetchall()
+            print(f"""<table>
+            <tr>
+            <td>id</td>
+            <td>Фио</td>
+            <td>Возраст</td>
+            </tr>""")
+            for cur in alldata:
+                print(f"""
+              <tr>
+                <td>{cur[0]}</td>
+                <td>{cur[1]}</td>
+                <td>{cur[2]}</td>
+              </tr>""")
+            print("""</table>""")
 
 
     else:

@@ -24,4 +24,6 @@ urlpatterns = [
     path('', PatientListView.as_view(), name='home'),
     path('patient/<int:pk>/', AboutPatient.as_view(), name='patient'),
     path('form/', addPatient, name='form'),
+    path('changedata/', PatientChangeListView.as_view(), name='changedata'),
+    path('changedata/form/patient/<int:pk>/', ChangePatient.as_view(), name='changeform'),
 ]
